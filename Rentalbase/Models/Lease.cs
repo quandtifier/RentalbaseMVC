@@ -9,7 +9,6 @@ namespace Rentalbase.Models
 {
     public class Lease
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int LeaseID { get; set; }
         public int PropertyID { get; set; }
         public DateTime StartDate { get; set; }
