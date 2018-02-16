@@ -12,6 +12,7 @@ using Rentalbase.ViewModels;
 
 namespace Rentalbase.Controllers
 {
+    [Authorize(Users = "mq@here.com")]
     public class TenantController : Controller
     {
         private RBaseContext db = new RBaseContext();

@@ -13,6 +13,7 @@ using System.Data.Entity.Infrastructure;
 
 namespace Rentalbase.Controllers
 {
+    [Authorize(Users= "mq@here.com")]
     public class PropertyController : Controller
     {
         private RBaseContext db = new RBaseContext();
