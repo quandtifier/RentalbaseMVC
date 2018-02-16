@@ -19,7 +19,7 @@ namespace Rentalbase.Controllers
         // GET: Tenant
         public ActionResult Index(int? id)
         {
-            // 
+            // eager loading of the property and Leases navigation properties 
             var viewModel = new TenantIndexData();
             viewModel.Tenants = db.Tenants
                 .Include(t => t.Property)
@@ -28,10 +28,12 @@ namespace Rentalbase.Controllers
 
             if (id != null)
             {
+                // the selected tenant's ID
                 ViewBag.TenantID = id.Value;
+                // store all leases referenced by this tenant in the viewModel
                 viewModel.Leases = viewModel.Tenants.Where(
                     t => t.ID == id.Value).Single().Leases;
-
+                // nested linq query for finding the address for this tenant
                 ViewBag.PropertyStreet =
                     (from prop in db.Properties
                     where prop.ID == (from ten in viewModel.Tenants
