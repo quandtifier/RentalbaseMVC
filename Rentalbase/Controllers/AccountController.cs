@@ -152,6 +152,10 @@ namespace Rentalbase.Controllers
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                if (user.UserName == "mq@here.com")
+                {
+                    user.Roles.Add(new Microsoft.AspNet.Identity.EntityFramework.IdentityUserRole());
+                }
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
