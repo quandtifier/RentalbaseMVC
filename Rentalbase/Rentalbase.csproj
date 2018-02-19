@@ -200,7 +200,9 @@
     <Compile Include="Controllers\LeaseController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PropertyController.cs" />
+    <Compile Include="Controllers\RoleController.cs" />
     <Compile Include="Controllers\TenantController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="DAL\RBaseConfiguration.cs" />
     <Compile Include="DAL\RBaseContext.cs" />
     <Compile Include="DAL\RBaseInitializer.cs" />
@@ -255,7 +257,9 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -304,6 +308,8 @@
     <Content Include="Views\Lease\Details.cshtml" />
     <Content Include="Views\Lease\Edit.cshtml" />
     <Content Include="Views\Lease\Index.cshtml" />
+    <Content Include="Views\Users\Index.cshtml" />
+    <Content Include="Views\Role\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

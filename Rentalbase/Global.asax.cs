@@ -19,8 +19,8 @@ namespace Rentalbase
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             //DbInterception calls: uncomment to simulate transient errors here
-            DbInterception.Add(new RBaseInterceptorTransientErrors());
-            DbInterception.Add(new RBaseInterceptorLogging());
+            //DbInterception.Add(new RBaseInterceptorTransientErrors());
+            //DbInterception.Add(new RBaseInterceptorLogging());
         }
     }
 }

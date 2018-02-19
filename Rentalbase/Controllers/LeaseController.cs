@@ -11,7 +11,8 @@ using Rentalbase.Models;
 
 namespace Rentalbase.Controllers
 {
-    [Authorize(Users = "mq@here.com")]
+    [Authorize(Roles = "Admin,Manager")]
+
     public class LeaseController : Controller
     {
         private RBaseContext db = new RBaseContext();
