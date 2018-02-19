@@ -53,7 +53,7 @@
 @if (Model.Leases != null)
 {
     <h3>Leases assigned to tenant</h3>
-    <p>At current rental address: @ViewBag.PropertyStreet</p>
+    <p>At current rental address: @(ViewBag.PropertyStreet == null ? "Not current Resident" : ViewBag.PropertyStreet)</p>
     <table class="table">
         <tr>
             <th></th>

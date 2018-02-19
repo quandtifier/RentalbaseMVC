@@ -68,6 +68,7 @@ namespace Rentalbase.Migrations
                 new Tenant { PropertyID=5, Name="Terresa H Corbeil", Phone="2064957464", Email="tc@gmail.com", RegistrationDate=DateTime.Parse("2012-05-05")},
                 new Tenant { PropertyID=6, Name="Helena C Diaz", Phone="2068719078", Email="hd@gmail.com", RegistrationDate=DateTime.Parse("2012-06-06")},
                 new Tenant { PropertyID=7, Name="Lowell C Duque", Phone="3609844684", Email="ld@gmail.com", RegistrationDate=DateTime.Parse("2012-07-07")},
+                new Tenant { Name="NotTenantGuy", Phone="3601234567", Email="nt@gmail.com", RegistrationDate=DateTime.Parse("2012-07-07")},
             };
             tenants.ForEach(s => context.Tenants.AddOrUpdate(t => t.Email, s));
             context.SaveChanges();
