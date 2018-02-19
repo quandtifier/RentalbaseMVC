@@ -1,4 +1,5 @@
-﻿using System;
+﻿// strategy from https://code.msdn.microsoft.com/ASPNET-MVC-5-Security-And-44cbdb97
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;

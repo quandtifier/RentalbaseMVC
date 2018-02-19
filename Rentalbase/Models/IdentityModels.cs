@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿// strategy from https://code.msdn.microsoft.com/ASPNET-MVC-5-Security-And-44cbdb97
+using System.Data.Entity;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;

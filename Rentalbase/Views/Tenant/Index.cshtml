@@ -54,6 +54,7 @@
 {
     <h3>Leases assigned to tenant</h3>
     <p>At current rental address: @(ViewBag.PropertyStreet == null ? "Not current Resident" : ViewBag.PropertyStreet)</p>
+    <p>At landlord: @(ViewBag.LandlordName == null ? "No Manager Assigned" : ViewBag.LandlordName)</p>
     <table class="table">
         <tr>
             <th></th>

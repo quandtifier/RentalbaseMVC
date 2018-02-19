@@ -29,16 +29,29 @@ namespace Rentalbase.Controllers
 
             if (id != null)
             {
+                // Save tenantID in for view
                 ViewBag.TenantID = id.Value;
+                // Select all the leases associated with this Tenant
                 viewModel.Leases = viewModel.Tenants.Where(
                     t => t.ID == id.Value).Single().Leases;
 
+                // Select property address for this tenant
                 ViewBag.PropertyStreet =
                     (from prop in db.Properties
                     where prop.ID == (from ten in viewModel.Tenants
                                       where id.Value == ten.ID
                                       select ten.PropertyID).FirstOrDefault()
                     select prop.Street).FirstOrDefault();
+
+                // Select the landlord for this tenant
+                ViewBag.LandlordName =
+                    (from lord in db.Landlords
+                     where lord.ID == (from prop in db.Properties
+                                       where prop.ID == (from ten in viewModel.Tenants
+                                                         where id.Value == ten.ID
+                                                         select ten.PropertyID).FirstOrDefault()
+                                       select prop.LandlordID).FirstOrDefault()
+                     select lord.Name).FirstOrDefault();
 
             }
 

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿// strategy from https://code.msdn.microsoft.com/ASPNET-MVC-5-Security-And-44cbdb97
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace Rentalbase.Models
