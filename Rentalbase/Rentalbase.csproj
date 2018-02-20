@@ -197,6 +197,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LandlordController.cs" />
     <Compile Include="Controllers\LeaseController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PropertyController.cs" />
@@ -310,6 +311,11 @@
     <Content Include="Views\Lease\Index.cshtml" />
     <Content Include="Views\Users\Index.cshtml" />
     <Content Include="Views\Role\Index.cshtml" />
+    <Content Include="Views\Landlord\Create.cshtml" />
+    <Content Include="Views\Landlord\Delete.cshtml" />
+    <Content Include="Views\Landlord\Details.cshtml" />
+    <Content Include="Views\Landlord\Edit.cshtml" />
+    <Content Include="Views\Landlord\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

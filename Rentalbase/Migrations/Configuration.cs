@@ -22,6 +22,13 @@ namespace Rentalbase.Migrations
                 new Landlord {Name="Joshua Lansang", Street="332 Lake Forest Drive", City="Seattle", State="WA", Zip=98190, Phone="2061234567", Email="jlansang@rbase.com"},
                 new Landlord {Name="Michael Quandt", Street="74 Lookout Ave.", City="Silverlake", State="WA", Zip=98465, Phone="2531234567", Email="mquandt@rbase.com"},
                 new Landlord {Name="Alex Reid", Street="834 Ashley St.", City="Malone", State="WA", Zip=98559, Phone="4251234567", Email="areid@rbase.com"},
+                new Landlord {Name="C S Lewis", Street="1946 Harper St.", City="Narnia", State="WA", Zip=00000, Phone="1234567890", Email="cslewis@rbase.com"},
+                new Landlord {Name="Jacob Bain", Street="54 Military St.", City="Spanaway", State="WA", Zip=98387, Phone="2537777777", Email="baintrain@rbase.com"},
+                new Landlord {Name="Sally Newman", Street="979 LakeView Rd", City="Lakeview", State="WA", Zip=98851, Phone="2533334444", Email="bettercallsal@rbase.com"},
+                new Landlord {Name="Biggs Darklighter", Street="3 Red St", City="Yavin", State="WA", Zip=77777, Phone="2531134444", Email="biggs@rbase.com"},
+                new Landlord {Name="Wedge Antilles", Street="2 Red St", City="Yavin", State="WA", Zip=77777, Phone="2531134444", Email="wedge@rbase.com"},
+                new Landlord {Name="Guy McGee", Street="12 Oatmeal St.", City="Vermillion", State="WA", Zip=99992, Phone="9786754635", Email="geemcgee@rbase.com"},
+                new Landlord {Name="Isaac Clarke", Street="2009 Kellion St.", City="Aegis", State="WA", Zip=66666, Phone="0707070707", Email="iclarke@rbase.com"},
             };
             landlords.ForEach(s => context.Landlords.AddOrUpdate(p => p.Email, s));
             context.SaveChanges();
@@ -68,6 +75,7 @@ namespace Rentalbase.Migrations
                 new Tenant { PropertyID=5, Name="Terresa H Corbeil", Phone="2064957464", Email="tc@gmail.com", RegistrationDate=DateTime.Parse("2012-05-05")},
                 new Tenant { PropertyID=6, Name="Helena C Diaz", Phone="2068719078", Email="hd@gmail.com", RegistrationDate=DateTime.Parse("2012-06-06")},
                 new Tenant { PropertyID=7, Name="Lowell C Duque", Phone="3609844684", Email="ld@gmail.com", RegistrationDate=DateTime.Parse("2012-07-07")},
+                new Tenant { Name="NotTenantGuy", Phone="3601234567", Email="nt@gmail.com", RegistrationDate=DateTime.Parse("2012-07-07")},
             };
             tenants.ForEach(s => context.Tenants.AddOrUpdate(t => t.Email, s));
             context.SaveChanges();
