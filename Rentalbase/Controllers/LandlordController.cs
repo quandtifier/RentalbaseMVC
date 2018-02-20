@@ -24,7 +24,7 @@ namespace Rentalbase.Controllers
                 (from lord in db.Landlords
                 where !(from prop in db.Properties
                         select prop.LandlordID).Contains(lord.ID)
-                select db.Landlords.Count()).SingleOrDefault();
+                select db.Landlords.ToList()).Count();
 
             return View(db.Landlords.ToList());
         }
