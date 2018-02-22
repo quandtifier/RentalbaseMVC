@@ -64,11 +64,11 @@ namespace Rentalbase.DAL
             var leases = new List<Lease>
             {
                 new Lease { Tenants = new List<Tenant>(),
-                    PropertyID=1, StartDate=DateTime.Parse("2010-01-01"), EndDate=DateTime.Parse("2011-01-01"), RateMonthly=2000},
+                    PropertyID=1, StartDate=DateTime.Parse("2010-01-01"), DurationMonths=12, RateMonthly=2000},
                 new Lease { Tenants = new List<Tenant>(),
-                    PropertyID=1, StartDate=DateTime.Parse("2012-02-01"), EndDate=DateTime.Parse("2012-01-01"), RateMonthly=2000},
+                    PropertyID=1, StartDate=DateTime.Parse("2012-02-01"), DurationMonths=12, RateMonthly=2000},
                 new Lease { Tenants = new List<Tenant>(),
-                    PropertyID=1, StartDate=DateTime.Parse("2010-10-01"), EndDate=DateTime.Parse("2010-06-01"), RateMonthly=2000},
+                    PropertyID=1, StartDate=DateTime.Parse("2010-10-01"), DurationMonths=12, RateMonthly=2000},
             };
 
             leases.ForEach(s => context.Leases.Add(s));
