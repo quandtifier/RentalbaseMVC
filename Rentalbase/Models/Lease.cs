@@ -12,7 +12,7 @@ namespace Rentalbase.Models
         public int LeaseID { get; set; }
         public int PropertyID { get; set; }
         public DateTime StartDate { get; set; }
-        public DateTime EndDate { get; set; }
+        public int DurationMonths { get; set; }
         public float RateMonthly { get; set; }
 
         public virtual Property Property { get; set; }

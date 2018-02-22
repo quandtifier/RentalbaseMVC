@@ -218,6 +218,10 @@
     <Compile Include="Migrations\201802152019534_InitialCreate.Designer.cs">
       <DependentUpon>201802152019534_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201802230503285_EndDateToDurationMonths.cs" />
+    <Compile Include="Migrations\201802230503285_EndDateToDurationMonths.Designer.cs">
+      <DependentUpon>201802230503285_EndDateToDurationMonths.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -336,6 +340,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201802152019534_InitialCreate.resx">
       <DependentUpon>201802152019534_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802230503285_EndDateToDurationMonths.resx">
+      <DependentUpon>201802230503285_EndDateToDurationMonths.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -51,7 +51,7 @@ namespace Rentalbase.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "LeaseID,PropertyID,StartDate,EndDate,RateMonthly")] Lease lease)
+        public ActionResult Create([Bind(Include = "LeaseID,PropertyID,StartDate,DurationMonths,RateMonthly")] Lease lease)
         {
             if (ModelState.IsValid)
             {
@@ -85,7 +85,7 @@ namespace Rentalbase.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "LeaseID,PropertyID,StartDate,EndDate,RateMonthly")] Lease lease)
+        public ActionResult Edit([Bind(Include = "LeaseID,PropertyID,StartDate,DurationMonths,RateMonthly")] Lease lease)
         {
             if (ModelState.IsValid)
             {
