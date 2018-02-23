@@ -35,29 +35,48 @@ namespace Rentalbase.Migrations
 
             var propTypes = new List<PropertyType>
             {
-                new PropertyType{Type="Apartment"},
-                new PropertyType{Type="SFH"},
-                new PropertyType{Type="Industrial"},
+                new PropertyType{Type="APT STUDIO", Description="An apartment with only one room and a bath"},
+                new PropertyType{Type="APT 1BD/1BA", Description="A 1 bed and 1 bath apartment"},
+                new PropertyType{Type="APT 2BD/1BA", Description="A 2 bed and 2 bath apartment"},
+                new PropertyType{Type="APT 2BD/2BA", Description="A 2 bed and 2 bath apartment"},
+                new PropertyType{Type="APT 3BD/1BA", Description="A 3 bed and 1 bath apartment"},
+                new PropertyType{Type="APT 3BD/2BA", Description="A 3 bed and 2 bath apartment"},
+
+                new PropertyType{Type="SFH LARGE", Description="A Single Family Home larger than most"},
+                new PropertyType{Type="SFH 1BD/2BA", Description="A 1 bed and 2 bath Single Family Home"},
+                new PropertyType{Type="SFH 2BD/1BA", Description="A 2 bed and 1 bath Single Family Home"},
+                new PropertyType{Type="SFH 2BD/2BA", Description="A 2 bed and 2 bath Single Family Home"},
+                new PropertyType{Type="SFH 3BD/1BA", Description="A 3 bed and 1 bath Single Family Home"},
+                new PropertyType{Type="SFH 3BD/2BA", Description="A 3 bed and 2 bath Single Family Home"},
+                new PropertyType{Type="SFH 4BD/2BA", Description="A 4 bed and 2 bath Single Family Home"},
+                new PropertyType{Type="SFH 4BD/3BA", Description="A 4 bed and 3 bath Single Family Home"},
+
+                new PropertyType{Type="IND WRHS", Description="Warehouse space"},
+                new PropertyType{Type="IND OFFICE", Description="Office Space"},
+
             };
             propTypes.ForEach(s => context.PropertyTypes.AddOrUpdate(p => p.Type, s));
             context.SaveChanges();
 
             var properties = new List<Property>
             {
-                new Property { LandlordID=1, Street="38 Galvin Road", City="Seattle", State="WA", Zip=98181, Value=5000, Description="Need something here", PropertyType = propTypes.SingleOrDefault(t => t.Type == "SFH")},
-                new Property { LandlordID=1, Street="856 South Pl", City="Seattle", State="WA", Zip=98183, Value=20000, Description="Need something here", PropertyType = propTypes.SingleOrDefault(t => t.Type == "SFH")},
-                new Property { LandlordID=1, Street="4738 West Dr.", City="Seattle", State="WA", Zip=98184, Value=40000, Description="Need something here", PropertyType = propTypes.SingleOrDefault(t => t.Type == "SFH")},
-                new Property { LandlordID=1, Street="50 Old Dr.", City="Seattle", State="WA", Zip=98174, Value=20000, Description="Need something here", PropertyType = propTypes.SingleOrDefault(t => t.Type == "SFH")},
+                new Property { LandlordID=1, Street="38 Galvin Road", City="Seattle", State="WA", Zip=98181, Value=5000, Description="Property notes here", PropertyType = propTypes.SingleOrDefault(t => t.Type == "SFH 1BD/1BA")},
+                new Property { LandlordID=1, Street="61 North Mulberry St.", City="Seattle", State="WA", Zip=98183, Value=20000, Description="Property notes here", PropertyType = propTypes.SingleOrDefault(t => t.Type == "APT STUDIO")},
+                new Property { LandlordID=1, Street="87 Angel Ave", City="Seattle", State="WA", Zip=98184, Value=40000, Description="Property notes here", PropertyType = propTypes.SingleOrDefault(t => t.Type == "SFH 1BD/1BA")},
+                new Property { LandlordID=1, Street="50 Old Dr.", City="Seattle", State="WA", Zip=98174, Value=20000, Description="Property notes here", PropertyType = propTypes.SingleOrDefault(t => t.Type == "SFH 1BD/1BA")},
 
-                new Property { LandlordID=2, Street="9860 Cactus Lane Apt A", City="Tacoma", State="WA", Zip=98321, Value=99000, Description="Need something here", PropertyType = propTypes.SingleOrDefault(t => t.Type == "Apartment")},
-                new Property { LandlordID=2, Street="9860 Cactus Lane Apt B", City="Tacoma", State="WA", Zip=98322, Value=100000, Description="Need something here", PropertyType = propTypes.SingleOrDefault(t => t.Type == "Apartment")},
-                new Property { LandlordID=2, Street="9860 Cactus Lane Apt C", City="Tacoma", State="WA", Zip=98323, Value=101000, Description="Need something here", PropertyType = propTypes.SingleOrDefault(t => t.Type == "Apartment")},
-                new Property { LandlordID=2, Street="9860 Cactus Lane Apt D", City="Tacoma", State="WA", Zip=98324, Value=102000, Description="Need something here", PropertyType = propTypes.SingleOrDefault(t => t.Type == "Apartment")},
+                new Property { LandlordID=2, Street="9860 Cactus Lane Apt A", City="Tacoma", State="WA", Zip=98321, Value=99000, Description="Property notes here", PropertyType = propTypes.SingleOrDefault(t => t.Type == "APT 2BD/1BA")},
+                new Property { LandlordID=2, Street="9860 Cactus Lane Apt B", City="Tacoma", State="WA", Zip=98322, Value=100000, Description="Property notes here", PropertyType = propTypes.SingleOrDefault(t => t.Type == "APT 2BD/1BA")},
+                new Property { LandlordID=2, Street="9860 Cactus Lane Apt C", City="Tacoma", State="WA", Zip=98323, Value=101000, Description="Property notes here", PropertyType = propTypes.SingleOrDefault(t => t.Type == "APT 2BD/1BA")},
+                new Property { LandlordID=2, Street="9860 Cactus Lane Apt D", City="Tacoma", State="WA", Zip=98324, Value=102000, Description="Property notes here", PropertyType = propTypes.SingleOrDefault(t => t.Type == "APT 2BD/1BA")},
 
-                new Property { LandlordID=3, Street="10 Sample Dr.", City="Olympia", State="WA", Zip=98410, Value=300000, Description="Need something here", PropertyType = propTypes.SingleOrDefault(t => t.Type == "Industrial")},
-                new Property { LandlordID=3, Street="20 Sample Dr.", City="Olympia", State="WA", Zip=98411, Value=310000, Description="Need something here", PropertyType = propTypes.SingleOrDefault(t => t.Type == "Industrial")},
-                new Property { LandlordID=3, Street="30 Sample Dr.", City="Olympia", State="WA", Zip=98412, Value=320000, Description="Need something here", PropertyType = propTypes.SingleOrDefault(t => t.Type == "Industrial")},
-                new Property { LandlordID=3, Street="35 Sample Dr.", City="Olympia", State="WA", Zip=98413, Value=330000, Description="Need something here", PropertyType = propTypes.SingleOrDefault(t => t.Type == "Industrial")},
+                new Property { LandlordID=3, Street="7689 W. College St. Suite 1", City="Kent", State="WA", Zip=98410, Value=300000, Description="Property notes here", PropertyType = propTypes.SingleOrDefault(t => t.Type == "APT STUDIO")},
+                new Property { LandlordID=3, Street="7689 W. College St. Suite 2", City="Kent", State="WA", Zip=98411, Value=310000, Description="Property notes here", PropertyType = propTypes.SingleOrDefault(t => t.Type == "APT STUDIO")},
+                new Property { LandlordID=3, Street="7689 W. College St. Suite 3", City="Kent", State="WA", Zip=98412, Value=320000, Description="Property notes here", PropertyType = propTypes.SingleOrDefault(t => t.Type == "APT STUDIO")},
+                new Property { LandlordID=3, Street="7689 W. College St. Suite 4", City="Kent", State="WA", Zip=98413, Value=330000, Description="Property notes here", PropertyType = propTypes.SingleOrDefault(t => t.Type == "APT STUDIO")},
+
+                new Property { LandlordID=4, Street="1950 Harper St.", City="Narnia", State="WA", Zip=00000, Value=1000000, Description="Wordrobe not Included", PropertyType = propTypes.SingleOrDefault(t => t.Type == "APT STUDIO")},
+
             };
 
             properties.ForEach(s => context.Properties.AddOrUpdate(p => p.Street, s));
@@ -67,14 +86,23 @@ namespace Rentalbase.Migrations
             {
                 new Tenant { PropertyID=1, Name="Thomas M Anders", Phone="2063651375", Email="tanders@gmail.com", RegistrationDate=DateTime.Parse("2010-01-01")},
                 new Tenant { PropertyID=1, Name="Jen D Anders", Phone="2063651375", Email="janders@gmail.com", RegistrationDate=DateTime.Parse("2010-02-02")},
-                new Tenant { PropertyID=2, Name="Dorothy G Wilkinson", Phone="2065501377", Email="dw@gmail.com", RegistrationDate=DateTime.Parse("2017-02-02")},
-                new Tenant { PropertyID=2, Name="James F Wilkinson", Phone="2065501377", Email="jf@gmail.com", RegistrationDate=DateTime.Parse("2017-02-02")},
-                new Tenant { PropertyID=3, Name="George A Whyte", Phone="2830937463", Email="jj@gmail.com", RegistrationDate=DateTime.Parse("2012-03-03")},
-                new Tenant { PropertyID=3, Name="Franky Fish", Phone="2063653789", Email="ff@gmail.com", RegistrationDate=DateTime.Parse("2012-03-03")},
+                new Tenant { PropertyID=2, Name="Dorothy G Wilkinson", Phone="2065501377", Email="dwilkinson@gmail.com", RegistrationDate=DateTime.Parse("2017-02-02")},
+                new Tenant { PropertyID=2, Name="James F Wilkinson", Phone="2065501377", Email="jwilkinson@gmail.com", RegistrationDate=DateTime.Parse("2017-02-02")},
+
+                new Tenant { PropertyID=3, Name="George A Whyte", Phone="2830937463", Email="gwhite@gmail.com", RegistrationDate=DateTime.Parse("2012-03-03")},
+                new Tenant { PropertyID=3, Name="Franky Fish", Phone="2063653789", Email="ffish@gmail.com", RegistrationDate=DateTime.Parse("2012-03-03")},
                 new Tenant { PropertyID=4, Name="Keneth M Cloud", Phone="2063247693", Email="kc@gmail.com", RegistrationDate=DateTime.Parse("2012-04-04")},
                 new Tenant { PropertyID=5, Name="Terresa H Corbeil", Phone="2064957464", Email="tc@gmail.com", RegistrationDate=DateTime.Parse("2012-05-05")},
-                new Tenant { PropertyID=6, Name="Helena C Diaz", Phone="2068719078", Email="hd@gmail.com", RegistrationDate=DateTime.Parse("2012-06-06")},
-                new Tenant { PropertyID=7, Name="Lowell C Duque", Phone="3609844684", Email="ld@gmail.com", RegistrationDate=DateTime.Parse("2012-07-07")},
+
+                new Tenant { PropertyID=6, Name="Helena C Diaz", Phone="2068719078", Email="hdiaz@gmail.com", RegistrationDate=DateTime.Parse("2012-06-06")},
+                new Tenant { PropertyID=7, Name="Lowell C Duque", Phone="3609844684", Email="lduque@gmail.com", RegistrationDate=DateTime.Parse("2012-07-07")},
+                new Tenant { PropertyID=8, Name="Juan C Burris", Phone="2068496274", Email="jburris@gmail.com", RegistrationDate=DateTime.Parse("2012-08-08")},
+                new Tenant { PropertyID=8, Name="Janine W Taylor", Phone="2068496274", Email="jtaylor@gmail.com", RegistrationDate=DateTime.Parse("2012-09-09")},
+
+                new Tenant { PropertyID=8, Name="Anna W Beebe", Phone="3606611025", Email="abeebe@gmail.com", RegistrationDate=DateTime.Parse("2017-10-10")},
+                new Tenant { PropertyID=8, Name="Ray J Crutchfield", Phone="5093104460", Email="rcructchfield@gmail.com", RegistrationDate=DateTime.Parse("2017-11-11")},
+                new Tenant { PropertyID=8, Name="Julia A Mahoney", Phone="3604414963", Email="jmahoney@gmail.com", RegistrationDate=DateTime.Parse("2017-12-12")},
+
                 new Tenant { Name="NotTenantGuy", Phone="3601234567", Email="nt@gmail.com", RegistrationDate=DateTime.Parse("2012-07-07")},
             };
             tenants.ForEach(s => context.Tenants.AddOrUpdate(t => t.Email, s));
@@ -83,26 +111,73 @@ namespace Rentalbase.Migrations
 
             var leases = new List<Lease>
             {
+                //1
                 new Lease { StartDate=DateTime.Parse("2010-01-01"), DurationMonths=12, RateMonthly=2000,
                     PropertyID = properties.Single(p => p.Street == "38 Galvin Road").ID,
                     Tenants = new List<Tenant>()},
+                //2
                 new Lease { StartDate=DateTime.Parse("2012-02-01"), DurationMonths=12, RateMonthly=2100,
                     PropertyID = properties.Single(p => p.Street == "38 Galvin Road").ID,
                     Tenants = new List<Tenant>()},
+                //3
                 new Lease { StartDate=DateTime.Parse("2010-10-01"), DurationMonths=12, RateMonthly=2200,
                     PropertyID = properties.Single(p => p.Street == "38 Galvin Road").ID,
                     Tenants = new List<Tenant>()},
-                new Lease { StartDate=DateTime.Parse("2012-05-05"), DurationMonths=12, RateMonthly=1200,
+                //4
+                new Lease { StartDate=DateTime.Parse("2012-05-05"), DurationMonths=12, RateMonthly=1500,
                     PropertyID = properties.Single(p => p.Street == "9860 Cactus Lane Apt A").ID,
                     Tenants = new List<Tenant>()},
-                new Lease { StartDate=DateTime.Parse("2013-05-05"), DurationMonths=12, RateMonthly=1300,
+                //5
+                new Lease { StartDate=DateTime.Parse("2013-05-05"), DurationMonths=12, RateMonthly=1500,
                     PropertyID = properties.Single(p => p.Street == "9860 Cactus Lane Apt A").ID,
                     Tenants = new List<Tenant>()},
-                new Lease { StartDate=DateTime.Parse("2014-05-05"), DurationMonths=12, RateMonthly=1400,
+                //6
+                new Lease { StartDate=DateTime.Parse("2014-05-05"), DurationMonths=12, RateMonthly=1600,
                     PropertyID = properties.Single(p => p.Street == "9860 Cactus Lane Apt A").ID,
                     Tenants = new List<Tenant>()},
-                new Lease { StartDate=DateTime.Parse("2015-05-05"), DurationMonths=12, RateMonthly=1400,
+                //7
+                new Lease { StartDate=DateTime.Parse("2015-05-05"), DurationMonths=12, RateMonthly=1700,
                     PropertyID = properties.Single(p => p.Street == "9860 Cactus Lane Apt A").ID,
+                    Tenants = new List<Tenant>()},
+                //8
+                new Lease { StartDate=DateTime.Parse("2016-05-05"), DurationMonths=12, RateMonthly=1800,
+                    PropertyID = properties.Single(p => p.Street == "9860 Cactus Lane Apt A").ID,
+                    Tenants = new List<Tenant>()},
+                //9
+                new Lease { StartDate=DateTime.Parse("2017-09-09"), DurationMonths=6, RateMonthly=1000,
+                    PropertyID = properties.Single(p => p.Street == "7689 W. College St. Suite 1").ID,
+                    Tenants = new List<Tenant>()},
+                //10
+                new Lease { StartDate=DateTime.Parse("2017-10-10"), DurationMonths=6, RateMonthly=1100,
+                    PropertyID = properties.Single(p => p.Street == "7689 W. College St. Suite 2").ID,
+                    Tenants = new List<Tenant>()},
+                //11
+                new Lease { StartDate=DateTime.Parse("2017-11-11"), DurationMonths=6, RateMonthly=1200,
+                    PropertyID = properties.Single(p => p.Street == "7689 W. College St. Suite 3").ID,
+                    Tenants = new List<Tenant>()},
+                //12
+                new Lease { StartDate=DateTime.Parse("2012-12-12"), DurationMonths=12, RateMonthly=1300,
+                    PropertyID = properties.Single(p => p.Street == "7689 W. College St. Suite 4").ID,
+                    Tenants = new List<Tenant>()},
+                //13
+                new Lease { StartDate=DateTime.Parse("2013-12-12"), DurationMonths=12, RateMonthly=1400,
+                    PropertyID = properties.Single(p => p.Street == "7689 W. College St. Suite 4").ID,
+                    Tenants = new List<Tenant>()},
+                //14
+                new Lease { StartDate=DateTime.Parse("2014-12-12"), DurationMonths=12, RateMonthly=1500,
+                    PropertyID = properties.Single(p => p.Street == "7689 W. College St. Suite 4").ID,
+                    Tenants = new List<Tenant>()},
+                //15
+                new Lease { StartDate=DateTime.Parse("2015-12-12"), DurationMonths=12, RateMonthly=1600,
+                    PropertyID = properties.Single(p => p.Street == "7689 W. College St. Suite 4").ID,
+                    Tenants = new List<Tenant>()},
+                //16
+                new Lease { StartDate=DateTime.Parse("2016-12-12"), DurationMonths=12, RateMonthly=1600,
+                    PropertyID = properties.Single(p => p.Street == "7689 W. College St. Suite 4").ID,
+                    Tenants = new List<Tenant>()},
+                //17
+                new Lease { StartDate=DateTime.Parse("2017-12-12"), DurationMonths=12, RateMonthly=1600,
+                    PropertyID = properties.Single(p => p.Street == "7689 W. College St. Suite 4").ID,
                     Tenants = new List<Tenant>()},
             };
 
@@ -121,18 +196,19 @@ namespace Rentalbase.Migrations
 
             var invoices = new List<Invoice>
             {
+                // property 1 invoices
                 new Invoice { PropertyID = properties.Single(p => p.Street == "38 Galvin Road").ID, DateIssued=DateTime.Parse("2010-01-23"), DatePaid=DateTime.Parse("2010-02-02"), Description="Rent Payment", Cost=2000.00M, InvoiceType = invTypes.SingleOrDefault(t => t.Type == "RENT") },
                 new Invoice { PropertyID = properties.Single(p => p.Street == "38 Galvin Road").ID, DateIssued=DateTime.Parse("2010-02-23"), DatePaid=DateTime.Parse("2010-03-02"), Description="Rent Payment", Cost=2000.00M, InvoiceType = invTypes.SingleOrDefault(t => t.Type == "RENT") },
                 new Invoice { PropertyID = properties.Single(p => p.Street == "38 Galvin Road").ID, DateIssued=DateTime.Parse("2010-03-23"), DatePaid=DateTime.Parse("2010-04-02"), Description="Rent Payment", Cost=2000.00M, InvoiceType = invTypes.SingleOrDefault(t => t.Type == "RENT") },
                 new Invoice { PropertyID = properties.Single(p => p.Street == "38 Galvin Road").ID, DateIssued=DateTime.Parse("2010-04-23"), DatePaid=DateTime.Parse("2010-05-02"), Description="Rent Payment", Cost=2000.00M, InvoiceType = invTypes.SingleOrDefault(t => t.Type == "RENT") },
+                //property 5 invoices
+                new Invoice { PropertyID = properties.Single(p => p.Street == "9860 Cactus Lane Apt A").ID, DateIssued=DateTime.Parse("2012-02-23"), DatePaid=DateTime.Parse("2012-03-02"), Description="Rent Payment", Cost=1500.00M, InvoiceType = invTypes.SingleOrDefault(t => t.Type == "RENT") },
+                new Invoice { PropertyID = properties.Single(p => p.Street == "9860 Cactus Lane Apt A").ID, DateIssued=DateTime.Parse("2012-03-23"), DatePaid=DateTime.Parse("2012-04-02"), Description="Rent Payment", Cost=1500.00M, InvoiceType = invTypes.SingleOrDefault(t => t.Type == "RENT") },
+                new Invoice { PropertyID = properties.Single(p => p.Street == "9860 Cactus Lane Apt A").ID, DateIssued=DateTime.Parse("2012-04-23"), DatePaid=DateTime.Parse("2012-05-02"), Description="Rent Payment", Cost=1500.00M, InvoiceType = invTypes.SingleOrDefault(t => t.Type == "RENT") },
+                new Invoice { PropertyID = properties.Single(p => p.Street == "9860 Cactus Lane Apt A").ID, DateIssued=DateTime.Parse("2012-05-23"), DatePaid=DateTime.Parse("2012-06-02"), Description="Rent Payment", Cost=1500.00M, InvoiceType = invTypes.SingleOrDefault(t => t.Type == "RENT") },
 
-                new Invoice { PropertyID = properties.Single(p => p.Street == "856 South Pl").ID, DateIssued=DateTime.Parse("2012-02-23"), DatePaid=DateTime.Parse("2012-03-02"), Description="Rent Payment", Cost=2000.00M, InvoiceType = invTypes.SingleOrDefault(t => t.Type == "RENT") },
-                new Invoice { PropertyID = properties.Single(p => p.Street == "856 South Pl").ID, DateIssued=DateTime.Parse("2012-03-23"), DatePaid=DateTime.Parse("2012-04-02"), Description="Rent Payment", Cost=2000.00M, InvoiceType = invTypes.SingleOrDefault(t => t.Type == "RENT") },
-                new Invoice { PropertyID = properties.Single(p => p.Street == "856 South Pl").ID, DateIssued=DateTime.Parse("2012-04-23"), DatePaid=DateTime.Parse("2012-05-02"), Description="Rent Payment", Cost=2000.00M, InvoiceType = invTypes.SingleOrDefault(t => t.Type == "RENT") },
-                new Invoice { PropertyID = properties.Single(p => p.Street == "856 South Pl").ID, DateIssued=DateTime.Parse("2012-05-23"), DatePaid=DateTime.Parse("2012-06-02"), Description="Rent Payment", Cost=2000.00M, InvoiceType = invTypes.SingleOrDefault(t => t.Type == "RENT") },
-
-                new Invoice { PropertyID = properties.Single(p => p.Street == "4738 West Dr.").ID, DateIssued=DateTime.Parse("2017-05-23"), DatePaid=DateTime.Parse("2018-01-02"), Description="Broken Door", Cost=200.00M, InvoiceType = invTypes.SingleOrDefault(t => t.Type == "DAMAGE") },
-                new Invoice { PropertyID = properties.Single(p => p.Street == "4738 West Dr.").ID, DateIssued=DateTime.Parse("2017-06-13"), DatePaid=DateTime.Parse("2018-01-02"), Description="Broken Window", Cost=800.00M, InvoiceType = invTypes.SingleOrDefault(t => t.Type == "DAMAGE") },
+                new Invoice { PropertyID = properties.Single(p => p.Street == "38 Galvin Road").ID, DateIssued=DateTime.Parse("2017-06-08"), DatePaid=DateTime.Parse("2017-06-18"), Description="Sink Leak", Cost=500.00M, InvoiceType = invTypes.SingleOrDefault(t => t.Type == "MAINTENANCE") },
+                new Invoice { PropertyID = properties.Single(p => p.Street == "9860 Cactus Lane Apt B").ID, DateIssued=DateTime.Parse("2017-05-05"), DatePaid=DateTime.Parse("2017-05-10"), Description="Shower head broke", Cost=800.00M, InvoiceType = invTypes.SingleOrDefault(t => t.Type == "MAINTENANCE") },
             };
 
             invoices.ForEach(s => context.Invoices.AddOrUpdate(p => p.ID, s));
@@ -143,10 +219,25 @@ namespace Rentalbase.Migrations
             AddOrUpdateTenant(context, 2, "tanders@gmail.com");
             AddOrUpdateTenant(context, 2, "janders@gmail.com");
             AddOrUpdateTenant(context, 3, "janders@gmail.com");
+
             AddOrUpdateTenant(context, 4, "tc@gmail.com");
             AddOrUpdateTenant(context, 5, "tc@gmail.com");
             AddOrUpdateTenant(context, 6, "tc@gmail.com");
             AddOrUpdateTenant(context, 7, "tc@gmail.com");
+            AddOrUpdateTenant(context, 8, "tc@gmail.com");
+
+            AddOrUpdateTenant(context, 9, "hdiaz@gmail.com");
+            AddOrUpdateTenant(context, 10, "lduque@gmail.com");
+            AddOrUpdateTenant(context, 11, "jburris@gmail.com");
+
+            AddOrUpdateTenant(context, 12, "jtaylor@gmail.com");
+            AddOrUpdateTenant(context, 13, "jtaylor@gmail.com");
+            AddOrUpdateTenant(context, 14, "jtaylor@gmail.com");
+            AddOrUpdateTenant(context, 15, "jtaylor@gmail.com");
+            AddOrUpdateTenant(context, 16, "jtaylor@gmail.com");
+            AddOrUpdateTenant(context, 17, "jtaylor@gmail.com");
+
+
 
         }
 
