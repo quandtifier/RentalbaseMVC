@@ -222,6 +222,10 @@
     <Compile Include="Migrations\201802230503285_EndDateToDurationMonths.Designer.cs">
       <DependentUpon>201802230503285_EndDateToDurationMonths.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201802240132416_PropNavToInvoice.cs" />
+    <Compile Include="Migrations\201802240132416_PropNavToInvoice.Designer.cs">
+      <DependentUpon>201802240132416_PropNavToInvoice.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -343,6 +347,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201802230503285_EndDateToDurationMonths.resx">
       <DependentUpon>201802230503285_EndDateToDurationMonths.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802240132416_PropNavToInvoice.resx">
+      <DependentUpon>201802240132416_PropNavToInvoice.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
