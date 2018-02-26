@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+
 namespace Rentalbase.ViewModels
 {
-    public class PropertyCityGroup
+    public class TenantCityGroup
     {
         public string City { get; set; }
-        
-        public int PropertyCount { get; set; }
+
+        public int TenantCount { get; set; }
     }
 }

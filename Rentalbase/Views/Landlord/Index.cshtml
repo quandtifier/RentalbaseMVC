@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Rentalbase.Models.Landlord>
+﻿@model Rentalbase.ViewModels.LandlordIndexData
 
 @{
     ViewBag.Title = "Index";
@@ -11,32 +11,22 @@
 </p>
 <table class="table">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Street)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.City)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.State)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Zip)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Phone)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Email)
-        </th>
+        <th>Name</th>
+        <th>Street</th>
+        <th>City</th>
+        <th>State</th>
+        <th>Phone</th>
+        <th>Email</th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
+@foreach (var item in Model.Landlords) {
+    string selectedRow = "";
+    if (item.ID == ViewBag.TenantID)
+    {
+        selectedRow = "success";
+    }
+    <tr class="@selectedRow">
         <td>
             @Html.DisplayFor(modelItem => item.Name)
         </td>
@@ -50,15 +40,13 @@
             @Html.DisplayFor(modelItem => item.State)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Zip)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.Phone)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Email)
         </td>
         <td>
+            @Html.ActionLink("Select", "Index", new { id = item.ID }) |
             @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
             @Html.ActionLink("Details", "Details", new { id=item.ID }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.ID })
@@ -68,4 +56,37 @@
 
 </table>
 
-<h4>Number of Lazy Landlords: @(ViewBag.NumOfFreeLords == null ? 0 : ViewBag.NumOfFreeLords)</h4>
+<h4>Number of Lazy Landlords: @Model.FreeLandlords</h4>
+
+
+@if (Model.Properties != null)
+{
+    <h3>Properties assigned to this manager:</h3>
+    <table class="table">
+        <tr>
+            <th></th>
+            <th>Street</th>
+            <th>State</th>
+            <th>Type</th>
+            <th>Value</th>
+        </tr>
+
+        @foreach (var item in Model.Properties)
+        {
+            string selectedRow = "";
+            if (item.ID == ViewBag.LandlordID)
+            {
+                selectedRow = "success";
+            }
+            <tr class="@selectedRow">
+                <td>
+                    @Html.ActionLink("Select", "Index", new { ID = item.ID })
+                </td>
+                <td>@item.Street</td>
+                <td>@item.State</td>
+                <td>@item.PropertyType.Type</td>
+                <td>@item.Value</td>
+            </tr>
+        }
+    </table>
+}

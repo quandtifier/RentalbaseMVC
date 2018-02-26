@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Rentalbase.ViewModels.PropertyCityGroup>
+﻿@model IEnumerable<Rentalbase.ViewModels.RentCityGroup>
 
 @{
     ViewBag.Title = "Area Coverage Statistics";
@@ -9,13 +9,13 @@
 <table>
     <tr>
         <th>City</th>
-        <th>Property Count</th>
+        <th>Tenant Count</th>
     </tr>
 @foreach (var item in Model)
 {
     <tr>
         <td>@Html.DisplayFor(modelItem => item.City)</td>
-        <td>@item.PropertyCount</td>
+        <td>@item.AVGRentAmount</td>
     </tr>
 }
 </table>

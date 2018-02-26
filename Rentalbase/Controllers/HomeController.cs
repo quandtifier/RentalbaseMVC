@@ -17,19 +17,26 @@ namespace Rentalbase.Controllers
             return View();
         }
 
-        // LINQ groups the properties by city then calculates the number of props/city
-        // then stores the results in a collection PropertyCityGroup
         public ActionResult About()
         {
-            IQueryable<PropertyCityGroup> data =
-                from property in db.Properties
-                group property by property.City into propertyGroup
-                select new PropertyCityGroup()
-                {
-                    City = propertyGroup.Key,
-                    PropertyCount = propertyGroup.Count()
-                };
+            //LINQ finds how many properties in each sity
+            //IQueryable<PropertyCityGroup> data =
+            //    from property in db.Properties
+            //    group property by property.City into propertyGroup
+            //    select new PropertyCityGroup()
+            //    {
+            //        City = propertyGroup.Key,
+            //        PropertyCount = propertyGroup.Count()
+            //    };
 
+
+            string query =
+                "SELECT City, AVG(RateMonthly) AS AVGRentAmount " +
+                "FROM Property, Lease " +
+                "WHERE ID=PropertyID " +
+                "GROUP BY City";
+
+            IEnumerable<RentCityGroup> data = db.Database.SqlQuery<RentCityGroup>(query);
             return View(data.ToList());
         }
 
