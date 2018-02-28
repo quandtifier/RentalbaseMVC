@@ -239,6 +239,7 @@
     <Compile Include="Models\Tenant.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\AboutData.cs" />
     <Compile Include="ViewModels\LandlordIndexData.cs" />
     <Compile Include="ViewModels\PropertyCityGroup.cs" />
     <Compile Include="ViewModels\RentCityGroup.cs" />

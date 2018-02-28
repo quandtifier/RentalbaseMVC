@@ -19,25 +19,29 @@ namespace Rentalbase.Controllers
 
         public ActionResult About()
         {
+            var viewModel = new AboutData();
             //LINQ finds how many properties in each sity
-            //IQueryable<PropertyCityGroup> data =
-            //    from property in db.Properties
-            //    group property by property.City into propertyGroup
-            //    select new PropertyCityGroup()
-            //    {
-            //        City = propertyGroup.Key,
-            //        PropertyCount = propertyGroup.Count()
-            //    };
+            viewModel.propertyCityGroup =
+                from property in db.Properties
+                group property by property.City into propertyGroup
+                select new PropertyCityGroup()
+                {
+                    City = propertyGroup.Key,
+                    PropertyCount = propertyGroup.Count()
+                };
 
-
+            // Raw SQL query to find the avg rent amount paid
+            // by all Tenants over all time, grouped by City
             string query =
                 "SELECT City, AVG(RateMonthly) AS AVGRentAmount " +
                 "FROM Property, Lease " +
                 "WHERE ID=PropertyID " +
-                "GROUP BY City";
+                "GROUP BY City " +
+                "ORDER BY CITY";
 
-            IEnumerable<RentCityGroup> data = db.Database.SqlQuery<RentCityGroup>(query);
-            return View(data.ToList());
+            //IEnumerable<RentCityGroup> data = db.Database.SqlQuery<RentCityGroup>(query);
+            viewModel.rentCityGroup = db.Database.SqlQuery<RentCityGroup>(query);
+            return View(viewModel);
         }
 
         public ActionResult Contact()

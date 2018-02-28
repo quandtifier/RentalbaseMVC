@@ -43,7 +43,7 @@ namespace Rentalbase.Controllers
                                       select ten.PropertyID).FirstOrDefault()
                     select prop.Street).FirstOrDefault();
 
-                // Select the landlord for this tenant
+                // Select the landlord for this tenant double nested query
                 ViewBag.LandlordName =
                     (from lord in db.Landlords
                      where lord.ID == (from prop in db.Properties
