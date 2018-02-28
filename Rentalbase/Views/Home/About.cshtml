@@ -33,3 +33,24 @@
         </tr>
     }
 </table>
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Street</th>
+        <th>City</th>
+        <th>State</th>
+    </tr>
+    @foreach (var item in Model.tenantPropertyGroup)
+    {
+    <tr>
+        <td>@Html.DisplayFor(modelItem => item.Name)</td>
+        <td>@Html.DisplayFor(modelItem => item.Email)</td>
+        <td>@Html.DisplayFor(modelItem => item.Street)</td>
+        <td>@Html.DisplayFor(modelItem => item.City)</td>
+        <td>@Html.DisplayFor(modelItem => item.State)</td>
+
+    </tr>
+    }
+</table>

@@ -9,6 +9,8 @@ namespace Rentalbase.ViewModels
     {
         public IEnumerable<RentCityGroup> rentCityGroup { get; set; }
         public IEnumerable<PropertyCityGroup> propertyCityGroup { get; set; }
+        public IEnumerable<TenantPropertyGroup> tenantPropertyGroup { get; set; }
+
 
     }
 }

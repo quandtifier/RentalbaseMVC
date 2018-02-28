@@ -39,8 +39,18 @@ namespace Rentalbase.Controllers
                 "GROUP BY City " +
                 "ORDER BY CITY";
 
-            //IEnumerable<RentCityGroup> data = db.Database.SqlQuery<RentCityGroup>(query);
             viewModel.rentCityGroup = db.Database.SqlQuery<RentCityGroup>(query);
+
+            // RAW SQL query does full outer join on property and tenant 
+            // result is a fat table with null values when property is not occupied
+            // or tenant is not a current occupant
+            query =
+                "SELECT Name, Street, City, State, Zip, Email " +
+                "FROM TENANT FULL JOIN PROPERTY " +
+                "ON TENANT.PropertyID = PROPERTY.ID";
+
+            viewModel.tenantPropertyGroup = db.Database.SqlQuery<TenantPropertyGroup>(query);
+
             return View(viewModel);
         }
 
