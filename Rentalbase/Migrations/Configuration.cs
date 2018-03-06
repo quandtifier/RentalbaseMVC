@@ -37,7 +37,7 @@ namespace Rentalbase.Migrations
             {
                 new PropertyType{Type="APT STUDIO", Description="An apartment with only one room and a bath"},
                 new PropertyType{Type="APT 1BD/1BA", Description="A 1 bed and 1 bath apartment"},
-                new PropertyType{Type="APT 2BD/1BA", Description="A 2 bed and 2 bath apartment"},
+                new PropertyType{Type="APT 2BD/1BA", Description="A 2 bed and 1 bath apartment"},
                 new PropertyType{Type="APT 2BD/2BA", Description="A 2 bed and 2 bath apartment"},
                 new PropertyType{Type="APT 3BD/1BA", Description="A 3 bed and 1 bath apartment"},
                 new PropertyType{Type="APT 3BD/2BA", Description="A 3 bed and 2 bath apartment"},
@@ -60,10 +60,10 @@ namespace Rentalbase.Migrations
 
             var properties = new List<Property>
             {
-                new Property { LandlordID=1, Street="38 Galvin Road", City="Seattle", State="WA", Zip=98181, Value=5000, Description="Property notes here", PropertyType = propTypes.SingleOrDefault(t => t.Type == "SFH 1BD/1BA")},
+                new Property { LandlordID=1, Street="38 Galvin Road", City="Seattle", State="WA", Zip=98181, Value=5000, Description="Property notes here", PropertyType = propTypes.SingleOrDefault(t => t.Type == "SFH 1BD/2BA")},
                 new Property { LandlordID=1, Street="61 North Mulberry St.", City="Seattle", State="WA", Zip=98183, Value=20000, Description="Property notes here", PropertyType = propTypes.SingleOrDefault(t => t.Type == "APT STUDIO")},
-                new Property { LandlordID=1, Street="87 Angel Ave", City="Seattle", State="WA", Zip=98184, Value=40000, Description="Property notes here", PropertyType = propTypes.SingleOrDefault(t => t.Type == "SFH 1BD/1BA")},
-                new Property { LandlordID=1, Street="50 Old Dr.", City="Seattle", State="WA", Zip=98174, Value=20000, Description="Property notes here", PropertyType = propTypes.SingleOrDefault(t => t.Type == "SFH 1BD/1BA")},
+                new Property { LandlordID=1, Street="87 Angel Ave", City="Seattle", State="WA", Zip=98184, Value=40000, Description="Property notes here", PropertyType = propTypes.SingleOrDefault(t => t.Type == "SFH 1BD/2BA")},
+                new Property { LandlordID=1, Street="50 Old Dr.", City="Seattle", State="WA", Zip=98174, Value=20000, Description="Property notes here", PropertyType = propTypes.SingleOrDefault(t => t.Type == "SFH 1BD/2BA")},
 
                 new Property { LandlordID=2, Street="9860 Cactus Lane Apt A", City="Tacoma", State="WA", Zip=98321, Value=99000, Description="Property notes here", PropertyType = propTypes.SingleOrDefault(t => t.Type == "APT 2BD/1BA")},
                 new Property { LandlordID=2, Street="9860 Cactus Lane Apt B", City="Tacoma", State="WA", Zip=98322, Value=100000, Description="Property notes here", PropertyType = propTypes.SingleOrDefault(t => t.Type == "APT 2BD/1BA")},

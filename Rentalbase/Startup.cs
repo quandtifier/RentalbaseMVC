@@ -37,8 +37,8 @@ namespace Rentalbase
                 //Here we create a Admin super user who will maintain the website                  
 
                 var user = new ApplicationUser();
-                user.UserName = "quandtifier";
-                user.Email = "quandtifier@rb.com";
+                user.UserName = "Admin";
+                user.Email = "Admin@rb.com";
 
                 string userPWD = "12qw!@QW";
 
