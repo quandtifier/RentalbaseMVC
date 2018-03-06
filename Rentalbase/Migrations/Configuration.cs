@@ -37,7 +37,7 @@ namespace Rentalbase.Migrations
             {
                 new PropertyType{Type="APT STUDIO", Description="An apartment with only one room and a bath"},
                 new PropertyType{Type="APT 1BD/1BA", Description="A 1 bed and 1 bath apartment"},
-                new PropertyType{Type="APT 2BD/1BA", Description="A 2 bed and 2 bath apartment"},
+                new PropertyType{Type="APT 2BD/1BA", Description="A 2 bed and 1 bath apartment"},
                 new PropertyType{Type="APT 2BD/2BA", Description="A 2 bed and 2 bath apartment"},
                 new PropertyType{Type="APT 3BD/1BA", Description="A 3 bed and 1 bath apartment"},
                 new PropertyType{Type="APT 3BD/2BA", Description="A 3 bed and 2 bath apartment"},
@@ -60,10 +60,10 @@ namespace Rentalbase.Migrations
 
             var properties = new List<Property>
             {
-                new Property { LandlordID=1, Street="38 Galvin Road", City="Seattle", State="WA", Zip=98181, Value=5000, Description="Property notes here", PropertyType = propTypes.SingleOrDefault(t => t.Type == "SFH 1BD/1BA")},
+                new Property { LandlordID=1, Street="38 Galvin Road", City="Seattle", State="WA", Zip=98181, Value=5000, Description="Property notes here", PropertyType = propTypes.SingleOrDefault(t => t.Type == "SFH 1BD/2BA")},
                 new Property { LandlordID=1, Street="61 North Mulberry St.", City="Seattle", State="WA", Zip=98183, Value=20000, Description="Property notes here", PropertyType = propTypes.SingleOrDefault(t => t.Type == "APT STUDIO")},
-                new Property { LandlordID=1, Street="87 Angel Ave", City="Seattle", State="WA", Zip=98184, Value=40000, Description="Property notes here", PropertyType = propTypes.SingleOrDefault(t => t.Type == "SFH 1BD/1BA")},
-                new Property { LandlordID=1, Street="50 Old Dr.", City="Seattle", State="WA", Zip=98174, Value=20000, Description="Property notes here", PropertyType = propTypes.SingleOrDefault(t => t.Type == "SFH 1BD/1BA")},
+                new Property { LandlordID=1, Street="87 Angel Ave", City="Seattle", State="WA", Zip=98184, Value=40000, Description="Property notes here", PropertyType = propTypes.SingleOrDefault(t => t.Type == "SFH 1BD/2BA")},
+                new Property { LandlordID=1, Street="50 Old Dr.", City="Seattle", State="WA", Zip=98174, Value=20000, Description="Property notes here", PropertyType = propTypes.SingleOrDefault(t => t.Type == "SFH 1BD/2BA")},
 
                 new Property { LandlordID=2, Street="9860 Cactus Lane Apt A", City="Tacoma", State="WA", Zip=98321, Value=99000, Description="Property notes here", PropertyType = propTypes.SingleOrDefault(t => t.Type == "APT 2BD/1BA")},
                 new Property { LandlordID=2, Street="9860 Cactus Lane Apt B", City="Tacoma", State="WA", Zip=98322, Value=100000, Description="Property notes here", PropertyType = propTypes.SingleOrDefault(t => t.Type == "APT 2BD/1BA")},
@@ -97,11 +97,11 @@ namespace Rentalbase.Migrations
                 new Tenant { PropertyID=6, Name="Helena C Diaz", Phone="2068719078", Email="hdiaz@gmail.com", RegistrationDate=DateTime.Parse("2012-06-06")},
                 new Tenant { PropertyID=7, Name="Lowell C Duque", Phone="3609844684", Email="lduque@gmail.com", RegistrationDate=DateTime.Parse("2012-07-07")},
                 new Tenant { PropertyID=8, Name="Juan C Burris", Phone="2068496274", Email="jburris@gmail.com", RegistrationDate=DateTime.Parse("2012-08-08")},
-                new Tenant { PropertyID=8, Name="Janine W Taylor", Phone="2068496274", Email="jtaylor@gmail.com", RegistrationDate=DateTime.Parse("2012-09-09")},
+                new Tenant { PropertyID=9, Name="Janine W Taylor", Phone="2068496274", Email="jtaylor@gmail.com", RegistrationDate=DateTime.Parse("2012-09-09")},
 
-                new Tenant { PropertyID=8, Name="Anna W Beebe", Phone="3606611025", Email="abeebe@gmail.com", RegistrationDate=DateTime.Parse("2017-10-10")},
-                new Tenant { PropertyID=8, Name="Ray J Crutchfield", Phone="5093104460", Email="rcructchfield@gmail.com", RegistrationDate=DateTime.Parse("2017-11-11")},
-                new Tenant { PropertyID=8, Name="Julia A Mahoney", Phone="3604414963", Email="jmahoney@gmail.com", RegistrationDate=DateTime.Parse("2017-12-12")},
+                new Tenant { PropertyID=10, Name="Anna W Beebe", Phone="3606611025", Email="abeebe@gmail.com", RegistrationDate=DateTime.Parse("2017-10-10")},
+                new Tenant { PropertyID=11, Name="Ray J Crutchfield", Phone="5093104460", Email="rcructchfield@gmail.com", RegistrationDate=DateTime.Parse("2017-11-11")},
+                new Tenant { PropertyID=12, Name="Julia A Mahoney", Phone="3604414963", Email="jmahoney@gmail.com", RegistrationDate=DateTime.Parse("2017-12-12")},
 
                 new Tenant { Name="NotTenantGuy", Phone="3601234567", Email="nt@gmail.com", RegistrationDate=DateTime.Parse("2012-07-07")},
             };
@@ -186,10 +186,10 @@ namespace Rentalbase.Migrations
 
             var invTypes = new List<InvoiceType>
             {
-                new InvoiceType {Type="MAINTENANCE"},
-                new InvoiceType {Type="RENT"},
-                new InvoiceType {Type="DAMAGE"},
-                new InvoiceType {Type="DEPOSIT"},
+                //new InvoiceType {Type="MAINTENANCE"},
+                //new InvoiceType {Type="RENT"},
+                //new InvoiceType {Type="DAMAGE"},
+                //new InvoiceType {Type="DEPOSIT"},
             };
             invTypes.ForEach(s => context.InvoiceTypes.AddOrUpdate(p => p.Type, s));
             context.SaveChanges();

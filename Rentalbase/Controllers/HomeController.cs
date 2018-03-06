@@ -17,11 +17,11 @@ namespace Rentalbase.Controllers
             return View();
         }
 
-        // LINQ groups the properties by city then calculates the number of props/city
-        // then stores the results in a collection PropertyCityGroup
         public ActionResult About()
         {
-            IQueryable<PropertyCityGroup> data =
+            var viewModel = new AboutData();
+            //LINQ finds how many properties in each sity
+            viewModel.propertyCityGroup =
                 from property in db.Properties
                 group property by property.City into propertyGroup
                 select new PropertyCityGroup()
@@ -30,7 +30,28 @@ namespace Rentalbase.Controllers
                     PropertyCount = propertyGroup.Count()
                 };
 
-            return View(data.ToList());
+            // Raw SQL query to find the avg rent amount paid
+            // by all Tenants over all time, grouped by City
+            string query =
+                "SELECT City, AVG(RateMonthly) AS AVGRentAmount " +
+                "FROM Property, Lease " +
+                "WHERE ID=PropertyID " +
+                "GROUP BY City " +
+                "ORDER BY CITY";
+
+            viewModel.rentCityGroup = db.Database.SqlQuery<RentCityGroup>(query);
+
+            // RAW SQL query does full outer join on property and tenant 
+            // result is a fat table with null values when property is not occupied
+            // or tenant is not a current occupant
+            query =
+                "SELECT Name, Street, City, State, Zip, Email " +
+                "FROM TENANT FULL JOIN PROPERTY " +
+                "ON TENANT.PropertyID = PROPERTY.ID";
+
+            viewModel.tenantPropertyGroup = db.Database.SqlQuery<TenantPropertyGroup>(query);
+
+            return View(viewModel);
         }
 
         public ActionResult Contact()

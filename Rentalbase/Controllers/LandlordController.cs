@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using Rentalbase.DAL;
 using Rentalbase.Models;
+using Rentalbase.ViewModels;
 
 namespace Rentalbase.Controllers
 {
@@ -17,16 +18,31 @@ namespace Rentalbase.Controllers
         private RBaseContext db = new RBaseContext();
 
         // GET: Landlord
-        public ActionResult Index()
+        public ActionResult Index(int? id)
         {
+            var viewModel = new LandlordIndexData();
+            viewModel.Landlords = db.Landlords
+                .Include(l => l.Properties)
+                .OrderBy(l => l.Name);
+
             // Linq for finding the number of landlords who dont have properties
-            ViewBag.NumOfFreeLords =
+            viewModel.FreeLandlords =
                 (from lord in db.Landlords
                 where !(from prop in db.Properties
                         select prop.LandlordID).Contains(lord.ID)
                 select db.Landlords.ToList()).Count();
 
-            return View(db.Landlords.ToList());
+
+            if (id != null)
+            {
+                // Save tenantID in for view
+                ViewBag.LandlordID = id.Value;
+                // Select all the properties associated with this Landlord
+                viewModel.Properties = viewModel.Landlords.Where(
+                    l => l.ID == id.Value).Single().Properties;
+            }
+
+            return View(viewModel);
         }
 
         // GET: Landlord/Details/5
