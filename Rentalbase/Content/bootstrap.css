@@ -4193,7 +4193,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 
 .navbar-brand {
   float: left;
-  padding: 15px 15px;
+  padding: 5px 15px;/*changed to align image and nav links*/
   font-size: 18px;
   line-height: 20px;
 }
@@ -4501,7 +4501,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 }
 
 .navbar-inverse {
-  background-color: #222222;
+  background-color: #344656;
   border-color: #080808;
 }
 
@@ -4927,14 +4927,19 @@ a.list-group-item.active > .badge,
   margin-left: 3px;
 }
 
+
 .jumbotron {
+  /*background-image: url(RB.png);
+  background-repeat:no-repeat;
+  background-size: auto;*/
+  text-align:center;
   padding: 30px;
   margin-bottom: 30px;
   font-size: 21px;
   font-weight: 200;
   line-height: 2.1428571435;
   color: inherit;
-  background-color: #eeeeee;
+  background-color: #428bca;
 }
 
 .jumbotron h1 {
@@ -6814,3 +6819,10 @@ td.visible-print {
     display: none !important;
   }
 }
+/*.rb_brand {
+    background: url(~/RB.png) no-repeat top left;
+    display: block;
+    width:10em;
+    height:5em;
+    text-indent:-9999px;/*hide link text*/
+}*/
