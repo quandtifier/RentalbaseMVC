@@ -226,6 +226,22 @@
     <Compile Include="Migrations\201802240132416_PropNavToInvoice.Designer.cs">
       <DependentUpon>201802240132416_PropNavToInvoice.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803061856055_AnnotLandlord.cs" />
+    <Compile Include="Migrations\201803061856055_AnnotLandlord.Designer.cs">
+      <DependentUpon>201803061856055_AnnotLandlord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803061903183_AnnotProperty.cs" />
+    <Compile Include="Migrations\201803061903183_AnnotProperty.Designer.cs">
+      <DependentUpon>201803061903183_AnnotProperty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803061919479_AnnotLease.cs" />
+    <Compile Include="Migrations\201803061919479_AnnotLease.Designer.cs">
+      <DependentUpon>201803061919479_AnnotLease.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803061950517_AnnotTenant.cs" />
+    <Compile Include="Migrations\201803061950517_AnnotTenant.Designer.cs">
+      <DependentUpon>201803061950517_AnnotTenant.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -357,6 +373,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201802240132416_PropNavToInvoice.resx">
       <DependentUpon>201802240132416_PropNavToInvoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803061856055_AnnotLandlord.resx">
+      <DependentUpon>201803061856055_AnnotLandlord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803061903183_AnnotProperty.resx">
+      <DependentUpon>201803061903183_AnnotProperty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803061919479_AnnotLease.resx">
+      <DependentUpon>201803061919479_AnnotLease.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803061950517_AnnotTenant.resx">
+      <DependentUpon>201803061950517_AnnotTenant.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -9,6 +9,8 @@ namespace Rentalbase.ViewModels
     public class RentCityGroup
     {
         public string City { get; set; }
-        public double AVGRentAmount { get; set; }
+        [DataType(DataType.Currency)]
+        [RegularExpression(@"^\d+\.\d{0,2}$")]
+        public decimal AVGRentAmount { get; set; }
     }
 }

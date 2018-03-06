@@ -33,7 +33,7 @@ namespace Rentalbase.Controllers
             // Raw SQL query to find the avg rent amount paid
             // by all Tenants over all time, grouped by City
             string query =
-                "SELECT City, AVG(RateMonthly) AS AVGRentAmount " +
+                "SELECT City, CAST(AVG(RateMonthly) AS NUMERIC(16,2)) AS AVGRentAmount " +
                 "FROM Property, Lease " +
                 "WHERE ID=PropertyID " +
                 "GROUP BY City " +
