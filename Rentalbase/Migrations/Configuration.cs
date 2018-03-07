@@ -7,6 +7,7 @@ namespace Rentalbase.Migrations
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
+    using System.Text.RegularExpressions;
 
     internal sealed class Configuration : DbMigrationsConfiguration<Rentalbase.DAL.RBaseContext>
     {
@@ -28,8 +29,9 @@ namespace Rentalbase.Migrations
                 new Landlord {Name="Biggs Darklighter", Street="3 Red St", City="Yavin", State="WA", Zip=77777, Phone="2531134444", Email="biggs@rbase.com"},
                 new Landlord {Name="Wedge Antilles", Street="2 Red St", City="Yavin", State="WA", Zip=77777, Phone="2531134444", Email="wedge@rbase.com"},
                 new Landlord {Name="Guy McGee", Street="12 Oatmeal St.", City="Vermillion", State="WA", Zip=99992, Phone="9786754635", Email="geemcgee@rbase.com"},
-                new Landlord {Name="Isaac Clarke", Street="2009 Kellion St.", City="Aegis", State="WA", Zip=66666, Phone="0707070707", Email="iclarke@rbase.com"},
+                new Landlord {Name="Isaac Clarke", Street="2009 Kellion St.", City="Aegis", State="WA", Zip=66666, Phone="7707070707", Email="iclarke@rbase.com"},
             };
+            landlords.ForEach(s => s.Phone = SetPhoneNumberWithDashes(s.Phone));
             landlords.ForEach(s => context.Landlords.AddOrUpdate(p => p.Email, s));
             context.SaveChanges();
 
@@ -105,6 +107,7 @@ namespace Rentalbase.Migrations
 
                 new Tenant { Name="NotTenantGuy", Phone="3601234567", Email="nt@gmail.com", RegistrationDate=DateTime.Parse("2012-07-07")},
             };
+            tenants.ForEach(s => s.Phone = SetPhoneNumberWithDashes(s.Phone));
             tenants.ForEach(s => context.Tenants.AddOrUpdate(t => t.Email, s));
             context.SaveChanges();
 
@@ -247,6 +250,34 @@ namespace Rentalbase.Migrations
             var ten = ls.Tenants.SingleOrDefault(t => t.Email == tenantEmail);
             if (ten == null)
                 ls.Tenants.Add(context.Tenants.Single(t => t.Email == tenantEmail));
+        }
+
+        // Formats phone numbers to have dashes
+        public static string SetPhoneNumberWithDashes(string phoneNumberValue)
+        {
+            //Check if it is null or contains any non-digits
+            if (string.IsNullOrWhiteSpace(phoneNumberValue) || !Regex.IsMatch(phoneNumberValue, @"^[\d\-]+$"))
+            {
+                //Return empty string
+                return string.Empty;
+            }
+
+            //Check if it is in the format : ###-###-####
+            if (Regex.IsMatch(phoneNumberValue, @"\d{3}\-\d{3}\-\d{4}"))
+            {
+                //Correct format - return it
+                return phoneNumberValue;
+            }
+
+            if (phoneNumberValue.Length == 10)
+            {
+                //To use this method of formatting, you will need to pass in a numeric value, so convert
+                //your string
+                return string.Format("{0:###-###-####}", double.Parse(phoneNumberValue));
+            }
+
+            //Otherwise return the empty string
+            return string.Empty;
         }
     }
 }

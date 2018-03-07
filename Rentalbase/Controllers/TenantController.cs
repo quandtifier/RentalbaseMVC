@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Mvc;
 using Rentalbase.DAL;
@@ -90,6 +91,7 @@ namespace Rentalbase.Controllers
         {
             if (ModelState.IsValid)
             {
+                tenant.Phone = SetPhoneNumberWithDashes(tenant.Phone);
                 db.Tenants.Add(tenant);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -124,6 +126,7 @@ namespace Rentalbase.Controllers
         {
             if (ModelState.IsValid)
             {
+                tenant.Phone = SetPhoneNumberWithDashes(tenant.Phone);
                 db.Entry(tenant).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -165,6 +168,34 @@ namespace Rentalbase.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        // Formats phone numbers to have dashes
+        public static string SetPhoneNumberWithDashes(string phoneNumberValue)
+        {
+            //Check if it is null or contains any non-digits
+            if (string.IsNullOrWhiteSpace(phoneNumberValue) || !Regex.IsMatch(phoneNumberValue, @"^[\d\-]+$"))
+            {
+                //Return empty string
+                return string.Empty;
+            }
+
+            //Check if it is in the format : ###-###-####
+            if (Regex.IsMatch(phoneNumberValue, @"\d{3}\-\d{3}\-\d{4}"))
+            {
+                //Correct format - return it
+                return phoneNumberValue;
+            }
+
+            if (phoneNumberValue.Length == 10)
+            {
+                //To use this method of formatting, you will need to pass in a numeric value, so convert
+                //your string
+                return string.Format("{0:###-###-####}", double.Parse(phoneNumberValue));
+            }
+
+            //Otherwise return the empty string
+            return string.Empty;
         }
     }
 }
