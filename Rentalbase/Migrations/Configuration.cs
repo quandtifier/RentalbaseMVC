@@ -22,7 +22,7 @@ namespace Rentalbase.Migrations
                 new Landlord {Name="Joshua Lansang", Street="332 Lake Forest Drive", City="Seattle", State="WA", Zip=98190, Phone="2061234567", Email="jlansang@rbase.com"},
                 new Landlord {Name="Michael Quandt", Street="74 Lookout Ave.", City="Silverlake", State="WA", Zip=98465, Phone="2531234567", Email="mquandt@rbase.com"},
                 new Landlord {Name="Alex Reid", Street="834 Ashley St.", City="Malone", State="WA", Zip=98559, Phone="4251234567", Email="areid@rbase.com"},
-                new Landlord {Name="C S Lewis", Street="1946 Harper St.", City="Narnia", State="WA", Zip=00000, Phone="1234567890", Email="cslewis@rbase.com"},
+                new Landlord {Name="C S Lewis", Street="1946 Harper St.", City="Narnia", State="WA", Zip=10000, Phone="1234567890", Email="cslewis@rbase.com"},
                 new Landlord {Name="Jacob Bain", Street="54 Military St.", City="Spanaway", State="WA", Zip=98387, Phone="2537777777", Email="baintrain@rbase.com"},
                 new Landlord {Name="Sally Newman", Street="979 LakeView Rd", City="Lakeview", State="WA", Zip=98851, Phone="2533334444", Email="bettercallsal@rbase.com"},
                 new Landlord {Name="Biggs Darklighter", Street="3 Red St", City="Yavin", State="WA", Zip=77777, Phone="2531134444", Email="biggs@rbase.com"},
@@ -75,7 +75,7 @@ namespace Rentalbase.Migrations
                 new Property { LandlordID=3, Street="7689 W. College St. Suite 3", City="Kent", State="WA", Zip=98412, Value=320000, Description="Property notes here", PropertyType = propTypes.SingleOrDefault(t => t.Type == "APT STUDIO")},
                 new Property { LandlordID=3, Street="7689 W. College St. Suite 4", City="Kent", State="WA", Zip=98413, Value=330000, Description="Property notes here", PropertyType = propTypes.SingleOrDefault(t => t.Type == "APT STUDIO")},
 
-                new Property { LandlordID=4, Street="1950 Harper St.", City="Narnia", State="WA", Zip=00000, Value=1000000, Description="Wordrobe not Included", PropertyType = propTypes.SingleOrDefault(t => t.Type == "APT STUDIO")},
+                new Property { LandlordID=4, Street="1950 Harper St.", City="Narnia", State="WA", Zip=10000, Value=1000000, Description="Wordrobe not Included", PropertyType = propTypes.SingleOrDefault(t => t.Type == "APT STUDIO")},
 
             };
 
