@@ -783,6 +783,11 @@ pre code {
   clear: both;
 }
 
+.container .chatForm
+{
+    height: 250px;
+    width:300px;
+}
 .row {
   margin-right: -15px;
   margin-left: -15px;
@@ -6819,10 +6824,8 @@ td.visible-print {
     display: none !important;
   }
 }
-/*.rb_brand {
-    background: url(~/RB.png) no-repeat top left;
-    display: block;
-    width:10em;
-    height:5em;
-    text-indent:-9999px;/*hide link text*/
-}*/
+
+#message
+{
+    width:100em;
+}

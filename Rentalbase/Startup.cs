@@ -13,6 +13,8 @@ namespace Rentalbase
         {
             ConfigureAuth(app);
             CreateRolesandUsers();
+            app.MapSignalR();
+
         }
 
 
