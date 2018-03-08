@@ -20,39 +20,40 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model.Landlords) {
-    string selectedRow = "";
-    if (item.ID == ViewBag.TenantID)
+    @foreach (var item in Model.Landlords)
     {
-        selectedRow = "success";
+        string selectedRow = "";
+        if (item.ID == ViewBag.TenantID)
+        {
+            selectedRow = "success";
+        }
+        <tr class="@selectedRow">
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Street)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.City)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.State)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.ActionLink("Select", "Index", new { id = item.ID }) |
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+            </td>
+        </tr>
     }
-    <tr class="@selectedRow">
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Street)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.City)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.State)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Phone)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Email)
-        </td>
-        <td>
-            @Html.ActionLink("Select", "Index", new { id = item.ID }) |
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
-    </tr>
-}
 
 </table>
 
@@ -80,7 +81,7 @@
             }
             <tr class="@selectedRow">
                 <td>
-                    @Html.ActionLink("Select", "Index", new { ID = item.ID })
+                    @Html.ActionLink("Select", "Index", new { propertyID = item.ID })
                 </td>
                 <td>@item.Street</td>
                 <td>@item.State</td>
@@ -88,5 +89,26 @@
                 <td>@item.Value</td>
             </tr>
         }
+    </table>
+}
+
+@if (Model.Leases != null)
+{
+    <h3>Properties assigned to this manager:</h3>
+    <table class="table">
+        <tr>
+            <th>Start Date</th>
+            <th>Duration of Lease</th>
+            <th>Monthly Rate</th>
+        </tr>
+
+        @foreach (var item in Model.Leases)
+        {
+        <tr>
+            <td>@item.StartDate</td>
+            <td>@item.DurationMonths</td>
+            <td>@item.RateMonthly</td>
+        </tr>
+        }   
     </table>
 }

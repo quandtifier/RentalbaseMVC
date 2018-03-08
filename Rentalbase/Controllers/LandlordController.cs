@@ -19,7 +19,7 @@ namespace Rentalbase.Controllers
         private RBaseContext db = new RBaseContext();
 
         // GET: Landlord
-        public ActionResult Index(int? id)
+        public ActionResult Index(int? id, int? propertyID)
         {
             var viewModel = new LandlordIndexData();
             viewModel.Landlords = db.Landlords
@@ -41,6 +41,13 @@ namespace Rentalbase.Controllers
                 // Select all the properties associated with this Landlord
                 viewModel.Properties = viewModel.Landlords.Where(
                     l => l.ID == id.Value).Single().Properties;
+            }
+
+            // if a property is selected then get the leases
+            if (propertyID != null)
+            {
+                viewModel.Leases = viewModel.Properties.Where(
+                    p => p.ID == propertyID.Value).Single().Leases;
             }
 
             return View(viewModel);
