@@ -57,7 +57,6 @@
     <p>At landlord: @(ViewBag.LandlordName == null ? "No Manager Assigned" : ViewBag.LandlordName)</p>
     <table class="table">
         <tr>
-            <th></th>
             <th>Number</th>
             <th>Start Date</th>
             <th>Duration</th>
@@ -66,15 +65,8 @@
 
         @foreach (var item in Model.Leases)
         {
-            string selectedRow = "";
-            if (item.LeaseID == ViewBag.LeaseID)
-            {
-                selectedRow = "success";
-            }
-            <tr class="@selectedRow">
-                <td>
-                    @Html.ActionLink("Select", "Index", new { ID = item.LeaseID })
-                </td>
+
+            <tr>
                 <td>@item.LeaseID</td>
                 <td>@item.StartDate</td>
                 <td>@item.DurationMonths</td>
