@@ -1,10 +1,8 @@
 RENTALBASE ASP.NET EF6 MVC Application in C#
 (C) Rentalbase
 
-Authors:
-Project Manager: Michael Quandt
-Database Design concepts provided by Michael Quandt, Alexander Reid, and Joshua Langsang
-Purpose: Database Systems Design University of Washington Winter 2018 project.
+Author: Michael Quandt
+Purpose: TINFO431 Term Project
 
 
 Prequisites: Microsoft Visual Studio 2015 or later
@@ -17,7 +15,7 @@ Running the Application:
 > Run the application (ctrl+F5) or Dubug -> Start without Debugging
 
 Logging In:
-> Select: Login
+> Select Login
 > UserName: Admin
 > Password: 12wq!@QW
 

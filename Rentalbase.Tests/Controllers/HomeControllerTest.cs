@@ -7,6 +7,8 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Rentalbase;
 using Rentalbase.Controllers;
 using Rentalbase.ViewModels;
+using Rentalbase.Models;
+using Rentalbase.DAL;
 
 namespace Rentalbase.Tests.Controllers
 {
@@ -30,13 +32,13 @@ namespace Rentalbase.Tests.Controllers
         public void About()
         {
             // Arrange
-            HomeController controller = new HomeController();
+            var controller = new HomeController();
 
             // Act
-            ViewResult result = controller.About() as ViewResult;
+            var result = controller.About() as ViewResult;
 
             // Assert
-            Assert.IsNotNull(result);
+            Assert.IsInstanceOfType(result, typeof(AboutData));
         }
 
         [TestMethod]
