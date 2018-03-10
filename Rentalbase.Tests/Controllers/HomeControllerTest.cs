@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Rentalbase;
 using Rentalbase.Controllers;
+using Rentalbase.ViewModels;
 
 namespace Rentalbase.Tests.Controllers
 {
@@ -35,7 +36,7 @@ namespace Rentalbase.Tests.Controllers
             ViewResult result = controller.About() as ViewResult;
 
             // Assert
-            Assert.AreEqual("Your application description page.", result.ViewBag.Message);
+            Assert.IsNotNull(result);
         }
 
         [TestMethod]
