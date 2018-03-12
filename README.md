@@ -2,7 +2,8 @@ RENTALBASE ASP.NET EF6 MVC Application in C#
 (C) Rentalbase
 
 Author: Michael Quandt
-Purpose: TINFO431 Term Project
+Purpose: TINFO431 Term Project and Front-End Application for TCSS445
+Database design concepts by Michael Quand, Alex Reid, and Joshua Langsang
 
 
 Prequisites: Microsoft Visual Studio 2015 or later
